@@ -1,3 +1,6 @@
+<img width="1448" height="1086" alt="telegram-cloud-photo-size-4-6039557499989462631-w" src="https://github.com/user-attachments/assets/87d93667-f7f2-4714-9b53-1ab8d4e771dc" />
+
+
 # viral-hooks — Claude Code skill
 
 A Claude Code skill that turns Claude into a hook writer for short-form video. Paste a script (or just a topic), and Claude returns 3 scroll-stopping hook variants drawn from a library of **100 hook formulas across 10 psychology triggers**.
