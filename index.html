@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Top 100 Viral Hook Formulas — Library</title>
+<style>
+  :root {
+    --bg: #fafaf7;
+    --ink: #161616;
+    --muted: #6e6e6e;
+    --soft: #f0ece4;
+    --accent: #2563eb;
+    --accent-soft: #eaf0ff;
+    --card: #ffffff;
+    --border: #e8e4dc;
+    --code: #f5f1ea;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Inter", system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.55;
+  }
+  .container { max-width: 1000px; margin: 0 auto; padding: 56px 28px 96px; }
+
+  /* Header */
+  header.top { border-bottom: 2px solid var(--ink); padding-bottom: 28px; margin-bottom: 40px; }
+  header.top .label { font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); margin-bottom: 12px; }
+  header.top h1 { font-size: 44px; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 12px; }
+  header.top .meta { font-size: 15px; color: var(--muted); max-width: 720px; }
+  header.top .meta strong { color: var(--ink); }
+
+  /* How-to-use */
+  .howto { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 24px 28px; margin-bottom: 40px; }
+  .howto h2 { font-size: 18px; margin-bottom: 12px; }
+  .howto ol { padding-left: 22px; font-size: 14px; color: var(--muted); }
+  .howto ol li { margin-bottom: 6px; }
+  .howto ol li strong { color: var(--ink); }
+
+  /* Category grid (legend) */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-bottom: 56px;
+  }
+  .grid a {
+    display: block;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px 18px;
+    color: var(--ink);
+    text-decoration: none;
+    transition: border-color 0.15s, transform 0.15s;
+  }
+  .grid a:hover { border-color: var(--accent); transform: translateY(-1px); }
+  .grid a .num { font-size: 12px; color: var(--muted); font-weight: 700; letter-spacing: 0.05em; }
+  .grid a .name { font-size: 16px; font-weight: 700; margin: 4px 0 2px; }
+  .grid a .desc { font-size: 13px; color: var(--muted); }
+
+  /* Category section */
+  .cat { margin-bottom: 64px; scroll-margin-top: 24px; }
+  .cat-header { display: flex; align-items: baseline; gap: 14px; margin-bottom: 8px; padding-bottom: 12px; border-bottom: 1px solid var(--border); }
+  .cat-num { background: var(--ink); color: white; padding: 4px 10px; border-radius: 6px; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; }
+  .cat-name { font-size: 24px; font-weight: 800; letter-spacing: -0.01em; }
+  .cat-why { font-size: 14px; color: var(--muted); margin-bottom: 22px; max-width: 720px; }
+
+  /* Hook card */
+  .hook {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 18px 22px;
+    margin-bottom: 12px;
+    display: grid;
+    grid-template-columns: 50px 1fr 90px;
+    gap: 14px;
+    align-items: start;
+  }
+  .hook .id { font-size: 13px; color: var(--muted); font-weight: 700; font-feature-settings: "tnum"; padding-top: 2px; }
+  .hook .body .formula { font-size: 16px; font-weight: 700; line-height: 1.4; margin-bottom: 4px; }
+  .hook .body .example { font-size: 13px; color: var(--muted); font-style: italic; }
+  .hook .platform { font-size: 11px; color: var(--accent); background: var(--accent-soft); border-radius: 4px; padding: 4px 8px; text-align: center; font-weight: 700; letter-spacing: 0.04em; align-self: start; }
+
+  /* Quick-list */
+  .quicklist {
+    background: var(--code);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 28px 32px;
+    margin-top: 80px;
+    font-family: "SF Mono", Menlo, Consolas, monospace;
+    font-size: 13px;
+    line-height: 1.7;
+  }
+  .quicklist h2 { font-family: -apple-system, sans-serif; font-size: 22px; margin-bottom: 8px; }
+  .quicklist .sub { font-family: -apple-system, sans-serif; font-size: 13px; color: var(--muted); margin-bottom: 22px; }
+  .quicklist ol { padding-left: 36px; }
+  .quicklist ol li { margin-bottom: 4px; }
+  .quicklist .group-label { font-family: -apple-system, sans-serif; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); margin: 18px 0 6px; padding-top: 10px; border-top: 1px dashed var(--border); }
+  .quicklist .group-label:first-child { padding-top: 0; border-top: none; margin-top: 0; }
+
+  /* Footer */
+  .footer { margin-top: 80px; padding-top: 32px; border-top: 2px solid var(--ink); font-size: 13px; color: var(--muted); line-height: 1.6; }
+  .footer strong { color: var(--ink); }
+  .footer a { color: var(--accent); }
+
+  @media (max-width: 700px) {
+    .container { padding: 36px 16px; }
+    header.top h1 { font-size: 30px; }
+    .grid { grid-template-columns: 1fr; }
+    .hook { grid-template-columns: 36px 1fr; }
+    .hook .platform { grid-column: 2; justify-self: start; margin-top: 8px; }
+    .quicklist { padding: 22px 18px; }
+  }
+  @media print {
+    body { background: white; }
+    .hook, .grid a, .howto, .quicklist { break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+<header class="top">
+  <div class="label">Hook Library — General-purpose tool</div>
+  <h1>Top 100 Viral Hook Formulas</h1>
+  <div class="meta">
+    Battle-tested hook structures for short-form video, posts, threads, and headlines.
+    Organized by <strong>10 psychology triggers</strong>, <strong>100 formulas</strong>, with examples and best-platform tags.
+    Bottom of the page has the <strong>flat copy-paste list</strong> for quickly handing off to a writer alongside a script.
+  </div>
+</header>
+
+<section class="howto">
+  <h2>How to use this library</h2>
+  <ol>
+    <li><strong>Read the script first</strong> — figure out the topic and emotional tone.</li>
+    <li><strong>Pick a category</strong> from the menu below that matches the script's intent.</li>
+    <li><strong>Scan the 10 formulas</strong> in that category and pick 3 that fit.</li>
+    <li><strong>Fill in the brackets</strong> with the script's specific topic / number / pain.</li>
+    <li><strong>Test all 3</strong> as alt-hooks (A/B testing reveals which works for the audience).</li>
+  </ol>
+</section>
+
+<nav class="grid">
+  <a href="#cat-1">
+    <div class="num">CATEGORY 01</div>
+    <div class="name">Curiosity Gap</div>
+    <div class="desc">Open a question the brain must close</div>
+  </a>
+  <a href="#cat-2">
+    <div class="num">CATEGORY 02</div>
+    <div class="name">Contrarian / Pattern-Interrupt</div>
+    <div class="desc">Challenge a belief the viewer holds</div>
+  </a>
+  <a href="#cat-3">
+    <div class="num">CATEGORY 03</div>
+    <div class="name">Authority &amp; Proof</div>
+    <div class="desc">Earn instant trust with numbers and results</div>
+  </a>
+  <a href="#cat-4">
+    <div class="num">CATEGORY 04</div>
+    <div class="name">Emotional Trigger</div>
+    <div class="desc">Mirror the viewer's internal dialogue</div>
+  </a>
+  <a href="#cat-5">
+    <div class="num">CATEGORY 05</div>
+    <div class="name">Listicle &amp; Value Stack</div>
+    <div class="desc">Promise dense, scannable, save-worthy value</div>
+  </a>
+  <a href="#cat-6">
+    <div class="num">CATEGORY 06</div>
+    <div class="name">Question Hooks</div>
+    <div class="desc">Force the brain to formulate an answer</div>
+  </a>
+  <a href="#cat-7">
+    <div class="num">CATEGORY 07</div>
+    <div class="name">Story &amp; Narrative</div>
+    <div class="desc">Open mid-story, viewer needs the resolution</div>
+  </a>
+  <a href="#cat-8">
+    <div class="num">CATEGORY 08</div>
+    <div class="name">Negation / Myth Buster</div>
+    <div class="desc">Kill a belief in 2–4 words</div>
+  </a>
+  <a href="#cat-9">
+    <div class="num">CATEGORY 09</div>
+    <div class="name">Specificity &amp; Data</div>
+    <div class="desc">Numbers, times, doses, dates — credibility</div>
+  </a>
+  <a href="#cat-10">
+    <div class="num">CATEGORY 10</div>
+    <div class="name">Personal Confession</div>
+    <div class="desc">Vulnerability that earns instant attention</div>
+  </a>
+</nav>
+
+<!-- CATEGORY 1 -->
+<section class="cat" id="cat-1">
+  <div class="cat-header"><span class="cat-num">CAT 01</span><span class="cat-name">Curiosity Gap</span></div>
+  <p class="cat-why"><strong>Why it works:</strong> The brain treats unanswered questions like open browser tabs. It can't relax until the gap closes — so the viewer keeps watching.</p>
+
+  <div class="hook"><div class="id">001</div><div class="body"><div class="formula">"Nobody talks about [unexpected thing] in [niche]"</div><div class="example">"Nobody talks about why your Reels flop after 3am posts"</div></div><span class="platform">All</span></div>
+  <div class="hook"><div class="id">002</div><div class="body"><div class="formula">"I found out why [common problem] keeps happening"</div><div class="example">"I found out why your followers never convert"</div></div><span class="platform">All</span></div>
+  <div class="hook"><div class="id">003</div><div class="body"><div class="formula">"The [niche] industry doesn't want you to know this"</div><div class="example">"The skincare industry doesn't want you to know this"</div></div><span class="platform">TikTok / IG</span></div>
+  <div class="hook"><div class="id">004</div><div class="body"><div class="formula">"What happens when you [unexpected action] for [timeframe]"</div><div class="example">"What happens when you post 3x a day for 90 days"</div></div><span class="platform">YouTube</span></div>
+  <div class="hook"><div class="id">005</div><div class="body"><div class="formula">"I've been [doing thing] wrong my entire life"</div><div class="example">"I've been writing captions wrong my entire life"</div></div><span class="platform">All</span></div>
+  <div class="hook"><div class="id">006</div><div class="body"><div class="formula">"The truth about [topic] that nobody is saying"</div><div class="example">"The truth about freelancing that nobody is saying"</div></div><span class="platform">All</span></div>
+  <div class="hook"><div class="id">007</div><div class="body"><div class="formula">"Why [common belief] is actually the opposite"</div><div class="example">"Why 'eat less, move more' is actually making you fat"</div></div><span class="platform">All</span></div>
+  <div class="hook"><div class="id">008</div><div class="body"><div class="formula">"I wasn't supposed to share this, but…"</div><div class="example">"I wasn't supposed to share this, but here's what big agencies charge"</div></div><span class="platform">TikTok / IG</span></div>
+  <div class="hook"><div class="id">009</div><div class="body"><div class="formula">"What I learned from [unusual source]"</div><div class="example">"What I learned from a 70-year-old stripper about negotiation"</div></div><span class="platform">All</span></div>
+  <div class="hook"><div class="id">010</div><div class="body"><div class="formula">"The hidden cost of [popular thing]"</div><div class="example">"The hidden cost of going remote that nobody mentions"</div></div><span class="platform">All</span></div>
+</section>
+
+<!-- CATEGORY 2 -->
+<section class="cat" id="cat-2">
+  <div class="cat-header"><span class="cat-num">CAT 02</span><span class="cat-name">Contrarian / Pattern-Interrupt</span></div>
+  <p class="cat-why"><strong>Why it works:</strong> Contradicting a belief creates cognitive dissonance. People engage to resolve it — agree or argue, both feed the algorithm.</p>
+
+  <div class="hook"><div class="id">011</div><div class="body"><div class="formula">"Stop [common advice everyone gives]"</div><div class="example">"Stop posting every day — here's what actually grows"</div></div><span class="platform">All</span></div>
+  <div class="hook"><div class="id">012</div><div class="body"><div class="formula">"[Popular strategy] is dead. Here's what replaced it"</div><div class="example">"Hashtag research is dead. Here's what replaced it"</div></div><span class="platform">All</span></div>
+  <div class="hook"><div class="id">013</div><div class="body"><div class="formula">"Unpopular opinion: [bold claim about niche]"</div><div class="example">"Unpopular opinion: Canva templates are killing your brand"</div></div><span class="platform">LinkedIn / X</span></div>
+  <div class="hook"><div class="id">014</div><div class="body"><div class="formula">"I quit [thing everyone does] and [positive result]"</div><div class="example">"I quit posting Reels and my engagement doubled"</div></div><span class="platform">All</span></div>
+  <div class="hook"><div class="id">015</div><div class="body"><div class="formula">"Everyone's doing [trend] but they're missing [key detail]"</div><div class="example">"Everyone's doing carousels but missing the last slide"</div></div><span class="platform">IG / LinkedIn</span></div>
+  <div class="hook"><div class="id">016</div><div class="body"><div class="formula">"[Common advice] is making things worse"</div><div class="example">"More cardio is making your body fat worse"</div></div><span class="platform">All</span></div>
+  <div class="hook"><div class="id">017</div><div class="body"><div class="formula">"Hot take: [contrarian belief]"</div><div class="example">"Hot take: most personal brands are just glorified resumes"</div></div><span class="platform">X / LinkedIn</span></div>
+  <div class="hook"><div class="id">018</div><div class="body"><div class="formula">"I'm done with [popular practice]"</div><div class="example">"I'm done with growth hacking. Here's what I do now"</div></div><span class="platform">All</span></div>
+  <div class="hook"><div class="id">019</div><div class="body"><div class="formula">"If you're still doing [X], stop"</div><div class="example">"If you're still cold-emailing the same way, stop"</div></div><span class="platform">All</span></div>
+  <div class="hook"><div class="id">020</div><div class="body"><div class="formula">"The opposite of [common advice] worked for me"</div><div class="example">"The opposite of 'hustle' grew my business 5x"</div></div><span class="platform">All</span></div>
+</section>
+
+<!-- CATEGORY 3 -->
+<section class="cat" id="cat-3">
+  <div class="cat-header"><span class="cat-num">CAT 03</span><span class="cat-name">Authority &amp; Proof</span></div>
+  <p class="cat-why"><strong>Why it works:</strong> Specific numbers and proof activate the credibility filter. Vague claims get ignored. Precise claims earn attention.</p>
+
+  <div class="hook"><div class="id">021</div><div class="body"><div class="formula">"I [impressive result] in [short timeframe]. Here's the breakdown"</div><div class="example">"I grew to 100K followers in 6 months. Here's the breakdown"</div></div><span class="platform">All</span></div>
+  <div class="hook"><div class="id">022</div><div class="body"><div class="formula">"After analyzing [N] [things], here's what works"</div><div class="example">"After analyzing 500 viral posts, here's what works"</div></div><span class="platform">All</span></div>
+  <div class="hook"><div class="id">023</div><div class="body"><div class="formula">"[N] years of [experience] taught me one lesson"</div><div class="example">"8 years of freelancing taught me one brutal lesson"</div></div><span class="platform">LinkedIn</span></div>
+  <div class="hook"><div class="id">024</div><div class="body"><div class="formula">"I've helped [N] [people] do [result]. The #1 mistake is…"</div><div class="example">"I've helped 200 creators monetize. The #1 mistake is…"</div></div><span class="platform">All</span></div>
+  <div class="hook"><div class="id">025</div><div class="body"><div class="formula">"My [metric] went from [X] to [Y] when I changed [one thing]"</div><div class="example">"My CTR went from 2% to 11% when I changed thumbnails"</div></div><span class="platform">YouTube</span></div>
+  <div class="hook"><div class="id">026</div><div class="body"><div class="formula">"I tried [thing] for [N] days. Here's what happened"</div><div class="example">"I tried cold showers for 30 days. Here's what happened"</div></div><span class="platform">YouTube</span></div>
+  <div class="hook"><div class="id">027</div><div class="body"><div class="formula">"[N] of my [content/clients] all do this one thing"</div><div class="example">"All 12 of my 6-figure clients do this one thing"</div></div><span class="platform">All</span></div>
+  <div class="hook"><div class="id">028</div><div class="body"><div class="formula">"After [N] failures, I finally figured out [X]"</div><div class="example">"After 47 failed launches, I finally figured out pricing"</div></div><span class="platform">LinkedIn</span></div>
+  <div class="hook"><div class="id">029</div><div class="body"><div class="formula">"Here's the data nobody is sharing about [topic]"</div><div class="example">"Here's the data nobody is sharing about LinkedIn reach"</div></div><span class="platform">LinkedIn / X</span></div>
+  <div class="hook"><div class="id">030</div><div class="body"><div class="formula">"I tested [N] different [things]. Only one worked"</div><div class="example">"I tested 13 different cold-email subject lines. One worked"</div></div><span class="platform">All</span></div>
+</section>
+
+<!-- CATEGORY 4 -->
+<section class="cat" id="cat-4">
+  <div class="cat-header"><span class="cat-num">CAT 04</span><span class="cat-name">Emotional Trigger</span></div>
+  <p class="cat-why"><strong>Why it works:</strong> Content that mirrors internal dialogue feels personal. The viewer thinks "this was made for me." That's the most powerful hook of all.</p>
+
+  <div class="hook"><div class="id">031</div><div class="body"><div class="formula">"If you're struggling with [pain point], read this"</div><div class="example">"If you're struggling to get past 1K followers, read this"</div></div><span class="platform">All</span></div>
+  <div class="hook"><div class="id">032</div><div class="body"><div class="formula">"This is for the [type of person] who [relatable struggle]"</div><div class="example">"This is for the creator who posts daily and gets crickets"</div></div><span class="platform">All</span></div>
+  <div class="hook"><div class="id">033</div><div class="body"><div class="formula">"I almost gave up on [thing] until [turning point]"</div><div class="example">"I almost gave up on YouTube until I found this"</div></div><span class="platform">YouTube</span></div>
+  <div class="hook"><div class="id">034</div><div class="body"><div class="formula">"The hard truth about [aspirational thing] nobody tells you"</div><div class="example">"The hard truth about going viral nobody tells you"</div></div><span class="platform">All</span></div>
+  <div class="hook"><div class="id">035</div><div class="body"><div class="formula">"You're not [negative self-belief] — you just need [solution]"</div><div class="example">"You're not bad at marketing — you just need better hooks"</div></div><span class="platform">All</span></div>
+  <div class="hook"><div class="id">036</div><div class="body"><div class="formula">"If this hits home, you're not alone"</div><div class="example">"If this hits home, you're not the only founder feeling lost"</div></div><span class="platform">All</span></div>
+  <div class="hook"><div class="id">037</div><div class="body"><div class="formula">"I cried writing this…"</div><div class="example">"I cried writing this — but it needs to be said"</div></div><span class="platform">LinkedIn / IG</span></div>
+  <div class="hook"><div class="id">038</div><div class="body"><div class="formula">"To the person who needs to hear this…"</div><div class="example">"To the founder who's about to quit — read this first"</div></div><span class="platform">All</span></div>
+  <div class="hook"><div class="id">039</div><div class="body"><div class="formula">"I see you. Here's what I wish I knew"</div><div class="example">"I see you, struggling first-year freelancer. Here's what I wish I knew"</div></div><span class="platform">All</span></div>
+  <div class="hook"><div class="id">040</div><div class="body"><div class="formula">"If you've ever felt [emotion], watch this"</div><div class="example">"If you've ever felt invisible at work, watch this"</div></div><span class="platform">TikTok / IG</span></div>
+</section>
+
+<!-- CATEGORY 5 -->
+<section class="cat" id="cat-5">
+  <div class="cat-header"><span class="cat-num">CAT 05</span><span class="cat-name">Listicle &amp; Value Stack</span></div>
+  <p class="cat-why"><strong>Why it works:</strong> Numbers set expectations. Viewers calculate value-to-time before committing. "Save this" / "bookmark" = micro-CTA boosting engagement signal.</p>
+
+  <div class="hook"><div class="id">041</div><div class="body"><div class="formula">"[N] [things] that will [outcome] (save this)"</div><div class="example">"7 free tools that will 10x your content (save this)"</div></div><span class="platform">All</span></div>
+  <div class="hook"><div class="id">042</div><div class="body"><div class="formula">"The only [N] [things] you need to [achieve result]"</div><div class="example">"The only 3 apps you need to run a faceless YouTube channel"</div></div><span class="platform">All</span></div>
+  <div class="hook"><div class="id">043</div><div class="body"><div class="formula">"I spent [time/money] on [thing] so you don't have to"</div><div class="example">"I spent $2,000 on YouTube courses so you don't have to"</div></div><span class="platform">YouTube / IG</span></div>
+  <div class="hook"><div class="id">044</div><div class="body"><div class="formula">"[Thing] cheat sheet (bookmark this)"</div><div class="example">"Instagram algorithm cheat sheet (bookmark this)"</div></div><span class="platform">All</span></div>
+  <div class="hook"><div class="id">045</div><div class="body"><div class="formula">"[N] things I wish I knew at [age/stage]"</div><div class="example">"7 things I wish I knew at 25 about money"</div></div><span class="platform">All</span></div>
+  <div class="hook"><div class="id">046</div><div class="body"><div class="formula">"[N] tools every [profession/role] needs"</div><div class="example">"5 tools every solo founder needs in 2026"</div></div><span class="platform">All</span></div>
+  <div class="hook"><div class="id">047</div><div class="body"><div class="formula">"[N] habits that changed my life in [timeframe]"</div><div class="example">"4 habits that changed my life in 90 days"</div></div><span class="platform">All</span></div>
+  <div class="hook"><div class="id">048</div><div class="body"><div class="formula">"[N] mistakes I made so you can skip them"</div><div class="example">"6 mistakes I made building my agency so you can skip them"</div></div><span class="platform">LinkedIn</span></div>
+  <div class="hook"><div class="id">049</div><div class="body"><div class="formula">"The ultimate [topic] starter pack"</div><div class="example">"The ultimate freelance writer starter pack"</div></div><span class="platform">X / IG</span></div>
+  <div class="hook"><div class="id">050</div><div class="body"><div class="formula">"[N] underrated [tools/habits/strategies]"</div><div class="example">"5 underrated AI tools that actually save me hours"</div></div><span class="platform">All</span></div>
+</section>
+
+<!-- CATEGORY 6 -->
+<section class="cat" id="cat-6">
+  <div class="cat-header"><span class="cat-num">CAT 06</span><span class="cat-name">Question Hooks</span></div>
+  <p class="cat-why"><strong>Why it works:</strong> Direct address forces the brain to formulate an answer. The viewer enters dialogue mode, can't stay passive.</p>
+
+  <div class="hook"><div class="id">051</div><div class="body"><div class="formula">"Why does [common annoyance] keep happening?"</div><div class="example">"Why does my plant keep dying even though I water it?"</div></div><span class="platform">All</span></div>
+  <div class="hook"><div class="id">052</div><div class="body"><div class="formula">"What if [shocking premise]?"</div><div class="example">"What if everything you know about productivity is wrong?"</div></div><span class="platform">All</span></div>
+  <div class="hook"><div class="id">053</div><div class="body"><div class="formula">"Have you ever wondered why [common thing]?"</div><div class="example">"Have you ever wondered why airline food tastes so bad?"</div></div><span class="platform">YouTube</span></div>
+  <div class="hook"><div class="id">054</div><div class="body"><div class="formula">"Are you making this [niche] mistake?"</div><div class="example">"Are you making this LinkedIn profile mistake?"</div></div><span class="platform">LinkedIn</span></div>
+  <div class="hook"><div class="id">055</div><div class="body"><div class="formula">"Is this you?"</div><div class="example">"Is this you at 4pm every workday?"</div></div><span class="platform">TikTok / IG</span></div>
+  <div class="hook"><div class="id">056</div><div class="body"><div class="formula">"Can you guess [shocking number/fact]?"</div><div class="example">"Can you guess how much I made my first year freelancing?"</div></div><span class="platform">All</span></div>
+  <div class="hook"><div class="id">057</div><div class="body"><div class="formula">"What would you do if [scenario]?"</div><div class="example">"What would you do if your biggest client fired you tomorrow?"</div></div><span class="platform">LinkedIn</span></div>
+  <div class="hook"><div class="id">058</div><div class="body"><div class="formula">"How long until [inevitable outcome]?"</div><div class="example">"How long until AI replaces your entry-level marketing job?"</div></div><span class="platform">LinkedIn / X</span></div>
+  <div class="hook"><div class="id">059</div><div class="body"><div class="formula">"Did your [authority figure] ever tell you about [X]?"</div><div class="example">"Did your school ever tell you how 401(k) fees work?"</div></div><span class="platform">All</span></div>
+  <div class="hook"><div class="id">060</div><div class="body"><div class="formula">"Why is nobody talking about [X]?"</div><div class="example">"Why is nobody talking about the 4-day work week data?"</div></div><span class="platform">All</span></div>
+</section>
+
+<!-- CATEGORY 7 -->
+<section class="cat" id="cat-7">
+  <div class="cat-header"><span class="cat-num">CAT 07</span><span class="cat-name">Story &amp; Narrative</span></div>
+  <p class="cat-why"><strong>Why it works:</strong> Mid-story openings hijack the brain's narrative-completion drive. The viewer needs the resolution.</p>
+
+  <div class="hook"><div class="id">061</div><div class="body"><div class="formula">"Last week, [unexpected thing] happened"</div><div class="example">"Last week, a stranger sent me $10,000"</div></div><span class="platform">All</span></div>
+  <div class="hook"><div class="id">062</div><div class="body"><div class="formula">"3 years ago I was [low point]. Today [high point]"</div><div class="example">"3 years ago I was sleeping in my car. Today I just bought my parents a house"</div></div><span class="platform">All</span></div>
+  <div class="hook"><div class="id">063</div><div class="body"><div class="formula">"I almost made the worst mistake of my [career/life]"</div><div class="example">"I almost made the worst hiring mistake of my career"</div></div><span class="platform">LinkedIn</span></div>
+  <div class="hook"><div class="id">064</div><div class="body"><div class="formula">"Yesterday a stranger said something that…"</div><div class="example">"Yesterday a stranger said something that changed how I see freelancing"</div></div><span class="platform">All</span></div>
+  <div class="hook"><div class="id">065</div><div class="body"><div class="formula">"I just got [shocking message/email]"</div><div class="example">"I just got an email that made me question everything"</div></div><span class="platform">All</span></div>
+  <div class="hook"><div class="id">066</div><div class="body"><div class="formula">"The day I realized [insight]…"</div><div class="example">"The day I realized I was the bottleneck in my own business"</div></div><span class="platform">LinkedIn</span></div>
+  <div class="hook"><div class="id">067</div><div class="body"><div class="formula">"I never thought I'd say this, but…"</div><div class="example">"I never thought I'd say this, but I'm leaving Twitter"</div></div><span class="platform">All</span></div>
+  <div class="hook"><div class="id">068</div><div class="body"><div class="formula">"POV: you're [scenario]"</div><div class="example">"POV: you're a 32yo woman trying to lose 5 pounds"</div></div><span class="platform">TikTok / IG</span></div>
+  <div class="hook"><div class="id">069</div><div class="body"><div class="formula">"When [character] said [quote], I knew…"</div><div class="example">"When my mentor said 'you're avoiding the work,' I knew he was right"</div></div><span class="platform">LinkedIn / X</span></div>
+  <div class="hook"><div class="id">070</div><div class="body"><div class="formula">"Here's a story that will change how you see [topic]"</div><div class="example">"Here's a story that will change how you see customer service"</div></div><span class="platform">All</span></div>
+</section>
+
+<!-- CATEGORY 8 -->
+<section class="cat" id="cat-8">
+  <div class="cat-header"><span class="cat-num">CAT 08</span><span class="cat-name">Negation / Myth Buster</span></div>
+  <p class="cat-why"><strong>Why it works:</strong> Two-word negations stop the scroll in 0.3 seconds. They contradict assumed reality and demand explanation.</p>
+
+  <div class="hook"><div class="id">071</div><div class="body"><div class="formula">"Not [common belief]."</div><div class="example">"Not arthritis." / "Not a heart attack." / "Not anxiety."</div></div><span class="platform">TikTok / IG</span></div>
+  <div class="hook"><div class="id">072</div><div class="body"><div class="formula">"[Common belief] is a lie."</div><div class="example">"'Find your passion' is a lie."</div></div><span class="platform">All</span></div>
+  <div class="hook"><div class="id">073</div><div class="body"><div class="formula">"It's not [common cause] — it's [real cause]"</div><div class="example">"It's not lack of motivation — it's poor sleep"</div></div><span class="platform">All</span></div>
+  <div class="hook"><div class="id">074</div><div class="body"><div class="formula">"Forget what they told you about [topic]"</div><div class="example">"Forget what they told you about cold pitching"</div></div><span class="platform">All</span></div>
+  <div class="hook"><div class="id">075</div><div class="body"><div class="formula">"[Popular thing] doesn't work. Here's why"</div><div class="example">"Affirmations don't work. Here's why"</div></div><span class="platform">All</span></div>
+  <div class="hook"><div class="id">076</div><div class="body"><div class="formula">"Stop blaming [usual suspect]. The real issue is…"</div><div class="example">"Stop blaming the algorithm. The real issue is your hook"</div></div><span class="platform">All</span></div>
+  <div class="hook"><div class="id">077</div><div class="body"><div class="formula">"There's no such thing as [popular concept]"</div><div class="example">"There's no such thing as 'work-life balance'"</div></div><span class="platform">LinkedIn</span></div>
+  <div class="hook"><div class="id">078</div><div class="body"><div class="formula">"[Big claim from authority] is wrong"</div><div class="example">"What your doctor said about cholesterol is wrong"</div></div><span class="platform">All</span></div>
+  <div class="hook"><div class="id">079</div><div class="body"><div class="formula">"Myth: [popular belief]. Reality: [contrarian truth]"</div><div class="example">"Myth: drink 8 glasses of water. Reality: you don't need to"</div></div><span class="platform">All</span></div>
+  <div class="hook"><div class="id">080</div><div class="body"><div class="formula">"If you still believe [X], read this"</div><div class="example">"If you still believe 'follow your dreams,' read this"</div></div><span class="platform">All</span></div>
+</section>
+
+<!-- CATEGORY 9 -->
+<section class="cat" id="cat-9">
+  <div class="cat-header"><span class="cat-num">CAT 09</span><span class="cat-name">Specificity &amp; Data</span></div>
+  <p class="cat-why"><strong>Why it works:</strong> Specific numbers, times, and amounts feel real. Vague hooks feel made up. Specificity = credibility.</p>
+
+  <div class="hook"><div class="id">081</div><div class="body"><div class="formula">"[Specific number]: that's how many [thing]"</div><div class="example">"$847: that's what I waste on subscriptions monthly"</div></div><span class="platform">All</span></div>
+  <div class="hook"><div class="id">082</div><div class="body"><div class="formula">"[Specific time]: the exact moment [thing happens]"</div><div class="example">"3:07am: the exact moment cortisol wakes you in peri"</div></div><span class="platform">All</span></div>
+  <div class="hook"><div class="id">083</div><div class="body"><div class="formula">"$[amount]: what [common thing] really costs"</div><div class="example">"$23,000: what one bad hire really costs you"</div></div><span class="platform">LinkedIn</span></div>
+  <div class="hook"><div class="id">084</div><div class="body"><div class="formula">"[N]%: the share of people who [X]"</div><div class="example">"73%: the share of LinkedIn posts that get under 100 views"</div></div><span class="platform">LinkedIn</span></div>
+  <div class="hook"><div class="id">085</div><div class="body"><div class="formula">"[Specific date]: when everything changed"</div><div class="example">"March 14, 2024: the day I deleted Instagram"</div></div><span class="platform">All</span></div>
+  <div class="hook"><div class="id">086</div><div class="body"><div class="formula">"[Number]:[number]: the ratio that matters"</div><div class="example">"3:1: the talk-to-listen ratio that closes deals"</div></div><span class="platform">LinkedIn</span></div>
+  <div class="hook"><div class="id">087</div><div class="body"><div class="formula">"[Lab number/metric]: the threshold nobody mentions"</div><div class="example">"Ferritin: 70. The threshold nobody mentions"</div></div><span class="platform">All</span></div>
+  <div class="hook"><div class="id">088</div><div class="body"><div class="formula">"[Time of day]: the exact window for [X]"</div><div class="example">"6-8am: the exact window cortisol wants you outside"</div></div><span class="platform">All</span></div>
+  <div class="hook"><div class="id">089</div><div class="body"><div class="formula">"[Specific dose/amount]: what actually works"</div><div class="example">"30 grams: the protein floor at breakfast"</div></div><span class="platform">All</span></div>
+  <div class="hook"><div class="id">090</div><div class="body"><div class="formula">"[Age]: when [X] starts and nobody warns you"</div><div class="example">"35: when perimenopause starts and nobody warns you"</div></div><span class="platform">All</span></div>
+</section>
+
+<!-- CATEGORY 10 -->
+<section class="cat" id="cat-10">
+  <div class="cat-header"><span class="cat-num">CAT 10</span><span class="cat-name">Personal Confession</span></div>
+  <p class="cat-why"><strong>Why it works:</strong> Vulnerability is rare and rewarded. Real confession from a real person beats polished expert content for trust + share rate.</p>
+
+  <div class="hook"><div class="id">091</div><div class="body"><div class="formula">"I'm about to share something embarrassing"</div><div class="example">"I'm about to share something embarrassing about my first year freelancing"</div></div><span class="platform">All</span></div>
+  <div class="hook"><div class="id">092</div><div class="body"><div class="formula">"I'll admit it: I [confession]"</div><div class="example">"I'll admit it: I bought followers in 2019"</div></div><span class="platform">All</span></div>
+  <div class="hook"><div class="id">093</div><div class="body"><div class="formula">"Nobody talks about this part of [experience]"</div><div class="example">"Nobody talks about the loneliness part of running a business"</div></div><span class="platform">LinkedIn / IG</span></div>
+  <div class="hook"><div class="id">094</div><div class="body"><div class="formula">"I failed publicly so you can succeed privately"</div><div class="example">"I failed publicly so you can build your agency without my mistakes"</div></div><span class="platform">LinkedIn</span></div>
+  <div class="hook"><div class="id">095</div><div class="body"><div class="formula">"Here's what I lied about for years"</div><div class="example">"Here's what I lied about on every podcast — until now"</div></div><span class="platform">All</span></div>
+  <div class="hook"><div class="id">096</div><div class="body"><div class="formula">"The thing I was most afraid to say"</div><div class="example">"The thing I was most afraid to say about my industry"</div></div><span class="platform">LinkedIn</span></div>
+  <div class="hook"><div class="id">097</div><div class="body"><div class="formula">"I'm tired of pretending [X]"</div><div class="example">"I'm tired of pretending hustle culture is healthy"</div></div><span class="platform">LinkedIn</span></div>
+  <div class="hook"><div class="id">098</div><div class="body"><div class="formula">"Real talk: [vulnerable admission]"</div><div class="example">"Real talk: I made $0 for 14 months before my first $10K month"</div></div><span class="platform">All</span></div>
+  <div class="hook"><div class="id">099</div><div class="body"><div class="formula">"I never thought I'd post this"</div><div class="example">"I never thought I'd post this — but my biggest deal taught me a brutal lesson"</div></div><span class="platform">LinkedIn</span></div>
+  <div class="hook"><div class="id">100</div><div class="body"><div class="formula">"Behind the scenes of [aspirational thing]"</div><div class="example">"Behind the scenes of my 6-figure month — including the panic attack"</div></div><span class="platform">All</span></div>
+</section>
+
+
+<!-- QUICK COPY-PASTE LIST -->
+<section class="quicklist" id="flat-list">
+  <h2>Flat list — copy-paste reference</h2>
+  <div class="sub">Hand this section + the script to a writer. They scan, pick the 3 strongest fits, fill the brackets with script-specific topics.</div>
+
+  <div class="group-label">01 — Curiosity Gap</div>
+  <ol>
+    <li>"Nobody talks about [unexpected thing] in [niche]"</li>
+    <li>"I found out why [common problem] keeps happening"</li>
+    <li>"The [niche] industry doesn't want you to know this"</li>
+    <li>"What happens when you [unexpected action] for [timeframe]"</li>
+    <li>"I've been [doing thing] wrong my entire life"</li>
+    <li>"The truth about [topic] that nobody is saying"</li>
+    <li>"Why [common belief] is actually the opposite"</li>
+    <li>"I wasn't supposed to share this, but…"</li>
+    <li>"What I learned from [unusual source]"</li>
+    <li>"The hidden cost of [popular thing]"</li>
+  </ol>
+
+  <div class="group-label">02 — Contrarian / Pattern-Interrupt</div>
+  <ol start="11">
+    <li>"Stop [common advice everyone gives]"</li>
+    <li>"[Popular strategy] is dead. Here's what replaced it"</li>
+    <li>"Unpopular opinion: [bold claim about niche]"</li>
+    <li>"I quit [thing everyone does] and [positive result]"</li>
+    <li>"Everyone's doing [trend] but they're missing [key detail]"</li>
+    <li>"[Common advice] is making things worse"</li>
+    <li>"Hot take: [contrarian belief]"</li>
+    <li>"I'm done with [popular practice]"</li>
+    <li>"If you're still doing [X], stop"</li>
+    <li>"The opposite of [common advice] worked for me"</li>
+  </ol>
+
+  <div class="group-label">03 — Authority &amp; Proof</div>
+  <ol start="21">
+    <li>"I [impressive result] in [short timeframe]. Here's the breakdown"</li>
+    <li>"After analyzing [N] [things], here's what works"</li>
+    <li>"[N] years of [experience] taught me one lesson"</li>
+    <li>"I've helped [N] [people] do [result]. The #1 mistake is…"</li>
+    <li>"My [metric] went from [X] to [Y] when I changed [one thing]"</li>
+    <li>"I tried [thing] for [N] days. Here's what happened"</li>
+    <li>"[N] of my [content/clients] all do this one thing"</li>
+    <li>"After [N] failures, I finally figured out [X]"</li>
+    <li>"Here's the data nobody is sharing about [topic]"</li>
+    <li>"I tested [N] different [things]. Only one worked"</li>
+  </ol>
+
+  <div class="group-label">04 — Emotional Trigger</div>
+  <ol start="31">
+    <li>"If you're struggling with [pain point], read this"</li>
+    <li>"This is for the [type of person] who [relatable struggle]"</li>
+    <li>"I almost gave up on [thing] until [turning point]"</li>
+    <li>"The hard truth about [aspirational thing] nobody tells you"</li>
+    <li>"You're not [negative self-belief] — you just need [solution]"</li>
+    <li>"If this hits home, you're not alone"</li>
+    <li>"I cried writing this…"</li>
+    <li>"To the person who needs to hear this…"</li>
+    <li>"I see you. Here's what I wish I knew"</li>
+    <li>"If you've ever felt [emotion], watch this"</li>
+  </ol>
+
+  <div class="group-label">05 — Listicle &amp; Value Stack</div>
+  <ol start="41">
+    <li>"[N] [things] that will [outcome] (save this)"</li>
+    <li>"The only [N] [things] you need to [achieve result]"</li>
+    <li>"I spent [time/money] on [thing] so you don't have to"</li>
+    <li>"[Thing] cheat sheet (bookmark this)"</li>
+    <li>"[N] things I wish I knew at [age/stage]"</li>
+    <li>"[N] tools every [profession/role] needs"</li>
+    <li>"[N] habits that changed my life in [timeframe]"</li>
+    <li>"[N] mistakes I made so you can skip them"</li>
+    <li>"The ultimate [topic] starter pack"</li>
+    <li>"[N] underrated [tools/habits/strategies]"</li>
+  </ol>
+
+  <div class="group-label">06 — Question Hooks</div>
+  <ol start="51">
+    <li>"Why does [common annoyance] keep happening?"</li>
+    <li>"What if [shocking premise]?"</li>
+    <li>"Have you ever wondered why [common thing]?"</li>
+    <li>"Are you making this [niche] mistake?"</li>
+    <li>"Is this you?"</li>
+    <li>"Can you guess [shocking number/fact]?"</li>
+    <li>"What would you do if [scenario]?"</li>
+    <li>"How long until [inevitable outcome]?"</li>
+    <li>"Did your [authority figure] ever tell you about [X]?"</li>
+    <li>"Why is nobody talking about [X]?"</li>
+  </ol>
+
+  <div class="group-label">07 — Story &amp; Narrative</div>
+  <ol start="61">
+    <li>"Last week, [unexpected thing] happened"</li>
+    <li>"3 years ago I was [low point]. Today [high point]"</li>
+    <li>"I almost made the worst mistake of my [career/life]"</li>
+    <li>"Yesterday a stranger said something that…"</li>
+    <li>"I just got [shocking message/email]"</li>
+    <li>"The day I realized [insight]…"</li>
+    <li>"I never thought I'd say this, but…"</li>
+    <li>"POV: you're [scenario]"</li>
+    <li>"When [character] said [quote], I knew…"</li>
+    <li>"Here's a story that will change how you see [topic]"</li>
+  </ol>
+
+  <div class="group-label">08 — Negation / Myth Buster</div>
+  <ol start="71">
+    <li>"Not [common belief]."</li>
+    <li>"[Common belief] is a lie."</li>
+    <li>"It's not [common cause] — it's [real cause]"</li>
+    <li>"Forget what they told you about [topic]"</li>
+    <li>"[Popular thing] doesn't work. Here's why"</li>
+    <li>"Stop blaming [usual suspect]. The real issue is…"</li>
+    <li>"There's no such thing as [popular concept]"</li>
+    <li>"[Big claim from authority] is wrong"</li>
+    <li>"Myth: [popular belief]. Reality: [contrarian truth]"</li>
+    <li>"If you still believe [X], read this"</li>
+  </ol>
+
+  <div class="group-label">09 — Specificity &amp; Data</div>
+  <ol start="81">
+    <li>"[Specific number]: that's how many [thing]"</li>
+    <li>"[Specific time]: the exact moment [thing happens]"</li>
+    <li>"$[amount]: what [common thing] really costs"</li>
+    <li>"[N]%: the share of people who [X]"</li>
+    <li>"[Specific date]: when everything changed"</li>
+    <li>"[Number]:[number]: the ratio that matters"</li>
+    <li>"[Lab number/metric]: the threshold nobody mentions"</li>
+    <li>"[Time of day]: the exact window for [X]"</li>
+    <li>"[Specific dose/amount]: what actually works"</li>
+    <li>"[Age]: when [X] starts and nobody warns you"</li>
+  </ol>
+
+  <div class="group-label">10 — Personal Confession</div>
+  <ol start="91">
+    <li>"I'm about to share something embarrassing"</li>
+    <li>"I'll admit it: I [confession]"</li>
+    <li>"Nobody talks about this part of [experience]"</li>
+    <li>"I failed publicly so you can succeed privately"</li>
+    <li>"Here's what I lied about for years"</li>
+    <li>"The thing I was most afraid to say"</li>
+    <li>"I'm tired of pretending [X]"</li>
+    <li>"Real talk: [vulnerable admission]"</li>
+    <li>"I never thought I'd post this"</li>
+    <li>"Behind the scenes of [aspirational thing]"</li>
+  </ol>
+</section>
+
+<div class="footer">
+  <strong>Workflow tip.</strong> Send this file together with the finished script. The writer reads the script first, identifies the emotional beat (curiosity / contrarian / confession / data / story), jumps to the matching category, picks 3 candidate hooks, fills the brackets with script-specific words, and tests them as A/B variants.<br><br>
+  <strong>The two best hooks per video are usually different categories.</strong> Mix one stop-scroll hook (negation, specificity, question) with one retention hook (story, confession, emotional). The first stops the thumb. The second keeps them watching past 3 seconds.<br><br>
+  Adapted from <a href="https://github.com/jakeolschewski/social-media-hooks-database">social-media-hooks-database</a> (MIT) and 75+ patterns curated from viral short-form across TikTok, IG, YouTube, LinkedIn, and X.
+</div>
+
+</div>
+</body>
+</html>
