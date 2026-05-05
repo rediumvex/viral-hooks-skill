@@ -83,8 +83,6 @@ The two best hooks per video are usually from **different categories**. Mix one 
 - [`hooks-database.md`](hooks-database.md) — the 100 hook formulas in markdown
 - [`preview.html`](preview.html) — styled HTML reference (open in a browser, share with writers)
 
-## Credit & License
 
-Adapted from [jakeolschewski/social-media-hooks-database](https://github.com/jakeolschewski/social-media-hooks-database) (MIT) plus 75+ additional patterns curated from viral short-form across TikTok, IG, YouTube, LinkedIn, and X.
 
 [MIT](LICENSE).
